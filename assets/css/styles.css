@@ -895,3 +895,42 @@ h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
   padding-left: 1.2rem;
 }
 .cert-desc .desc.rich .key-points li { margin: 4px 0; }
+
+
+
+/* Let grid children shrink (prevents hidden/min-content overflow) */
+.nav, .menu, .nav-left, .nav-right { min-width: 0; }
+
+/* The time string can get long (especially in German). Clamp it. */
+.nav-left time{
+  display:block;
+  max-width:45vw;           /* keep it from hogging space */
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:.9rem;          /* slightly smaller on tight screens */
+}
+
+/* Allow the menu itself to wrap when needed */
+.menu { flex-wrap: wrap; }
+
+/* Mobile layout: stack the menu under the clock/controls */
+@media (max-width: 720px){
+  .nav{
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "left right"
+      "menu menu";
+    height:auto;
+    row-gap:8px;
+    padding:8px 0;
+  }
+  .nav-left  { grid-area: left; }
+  .nav-right { grid-area: right; justify-self:end; }
+  .menu{
+    grid-area: menu;
+    justify-content: center;
+    gap: 8px 10px;          /* row-gap / column-gap */
+  }
+  .menu a{ padding:6px 10px; } /* slimmer pills so they fit better */
+}
