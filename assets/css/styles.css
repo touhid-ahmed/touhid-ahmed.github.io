@@ -926,6 +926,14 @@ h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
     padding:8px 0;
   }
   .nav-left  { grid-area: left; }
+  .nav-left time{
+    max-width: 100%;
+    white-space: normal;   /* allow wrapping */
+    overflow: visible;     /* no clipping */
+    text-overflow: clip;   /* disable ellipsis */
+    line-height: 1.2;      /* tighter two-line stack */
+    font-size: .9rem;      /* keep legible */
+  }
   .nav-right { grid-area: right; justify-self:end; }
   .menu{
     grid-area: menu;
