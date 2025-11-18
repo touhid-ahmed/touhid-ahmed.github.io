@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research – Touhid Ahmed</title>
+  <link rel="icon" href="../assets/icons/icon_32.png" type="image/png">
+  <meta name="description" content="Research interests and publications of Touhid Ahmed." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <!-- Header / Nav (same as homepage) -->
+  <header class="site-header">
+    <nav class="container nav">
+
+      <div class="nav-left">
+        <time id="clock" aria-live="polite">—</time>
+      </div>
+
+
+
+      <ul class="menu" role="menubar">
+        <li role="none"><a role="menuitem" href="../index.html" data-i18n="nav_home">Home</a></li>
+        <li role="none"><a role="menuitem" href="../projects/index.html" data-i18n="nav_projects">Projects</a></li>
+        <li role="none"><a role="menuitem" href="./" aria-current="page" data-i18n="nav_research">Research</a></li>
+        <li role="none"><a role="menuitem" href="../certifications/index.html" data-i18n="nav_certs">Certifications</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <main>
+    <!-- Research Interests -->
+    <section class="section">
+      <div class="container">
+        <h2>Research Interests</h2>
+        <ul class="ri-list">
+          <li>
+            <h3>Multimodal foundation models for agricultural monitoring and yield forecasting</h3>
+            <p class="ri-desc">Develop transformer-based vision–geospatial models by fusing satellite, UAV, and hyperspectral imagery with
+                  environmental data using self-supervised pretraining and domain adaptation to enable robust crop classification,
+                  stress detection, and yield estimation under severe distribution shifts.</p>
+          </li>
+          <li>
+            <h3>Deep learning for perception and scene understanding in robotics</h3>
+            <p class="ri-desc">Develop efficient perception pipelines by combining object detection, semantic segmentation, and 6D pose
+                  estimation for reliable operation in cluttered, dynamic, and outdoor environments.</p>
+          </li>
+          <li>
+            <h3>Reinforcement learning and motion planning for mobile robots</h3>
+            <p class="ri-desc">Design learning-augmented planners that enable safe, sample-efficient navigation and obstacle avoidance in
+                  partially known or dynamic environments</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="section">
+      <div class="container">
+        <h2>Publications</h2>
+
+        <div class="pub-list">
+
+          <!-- Publication Card 1 -->
+          <article class="card pub-card" role="link" tabindex="0"
+                   aria-label="ROS based robotic arm"
+                   data-href="https://ieeexplore.ieee.org/document/9790152">
+            <h3 class="pub-title">A ROS-based Voice Controlled Robotic Arm for Automatic Segregation of Medical
+                                  Waste Using YOLOv3</h3>
+
+            <!-- NEW: conference / venue line -->
+            <p class="pub-meta">
+              <span class="venue-badge" data-i18n="pub1_venue_short">ICCCR 2022</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-full" data-i18n="pub1_venue_full">International Conference on Computer, Control and Robotics</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-year" data-i18n="pub1_year">2022</span>
+            </p>
+                    
+            <div class="pub-body">
+              <div class="pub-media">
+                <img src="../assets/img/biomed.jpg" alt="pub 4 img" width="480" height="360" loading="lazy">
+              </div>
+              <div class="pub-abstract">
+                <p class="abstract" id="abs1">
+                  The outbreak of the Covid-19 pandemic has resulted in a surge in the generation of medical waste.
+                  Due to the transmissible nature of the Virus and the lack of effort at proper disposal, the safety of the front-line health workers, as well as the disposer, is at risk.
+                  Hence, to mitigate the spread of infectious diseases, a system is proposed that uses a robotic arm for segregating medical waste automatically.
+                  The robotic arm is operable through voice commands, and the segregating operation could function in automatic and manual mode.
+                  The system uses the YOLOv3 (You Only Look Once) algorithm to detect and classify the medical waste and then uses the Robot Operating System (ROS) platform to pick up and drop the waste object into color-coded bins.
+                  For this research, the medical waste has been categorized into 4 types, and for each type, a color-coded bin has been used for segregation.
+                  Our system has achieved 94% training accuracy for the YOLOv3 model on a custom dataset, whereas the system's overall accuracy in automated mode was 82.1%, derived after 30 trials.
+                  In the case of manual mode, an average accuracy of 82.5% has been achieved for the same number of trials.
+                </p>
+                <button class="see-more" aria-expanded="false" aria-controls="abs1" data-target="abs1">See more</button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="card pub-card" role="link" tabindex="0"
+                   aria-label="ROS based MRSS"
+                   data-href="https://ieeexplore.ieee.org/document/9292639">
+            <h3 class="pub-title">Autonomous Intruder Detection Using a ROS-Based Multi-Robot System Equipped with 2D-LiDAR Sensors</h3>
+            
+            <p class="pub-meta">
+              <span class="venue-badge" data-i18n="pub2_venue_short">SSRR 2020</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-full" data-i18n="pub2_venue_full">IEEE International Symposium on Safety, Security, and Rescue Robotics</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-year" data-i18n="pub2_year">2020</span>
+            </p>
+            
+            
+            <div class="pub-body">
+              <div class="pub-media">
+                <img src="../assets/img/mrss.png" alt="pub 3 img" width="480" height="360" loading="lazy">
+              </div>
+              <div class="pub-abstract">
+                <p class="abstract" id="abs2">
+                  The application of autonomous mobile robots in robotic security platforms is becoming a promising field of innovation due to their adaptive capability of responding to potential disturbances perceived through a wide range of sensors. 
+                  Researchers have proposed systems that either focus on utilizing a single mobile robot or a system of cooperative multiple robots. 
+                  However, very few of the proposed works, particularly in the field of multi-robot systems, are completely dependent on LiDAR sensors for achieving various tasks.
+                  This is essential when other sensors on a robot fail to provide peak performance in particular conditions, such as a camera operating in the absence of light.
+                  This paper proposes a multi-robot system that is developed using ROS (Robot Operating System) for intruder detection in a single-range-sensor-per-robot scenario with centralized processing of detections from all robots by our central bot MIDNet (Multiple Intruder Detection Network). 
+                  This work is aimed at providing an autonomous multi-robot security solution for a warehouse in the absence of human personnel.
+                </p>
+                <button class="see-more" aria-expanded="false" aria-controls="abs2" data-target="abs2">See more</button>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- Publication Card 2 -->
+          <article class="card pub-card" role="link" tabindex="0"
+                   aria-label="5G dual order RA"
+                   data-href="https://ieeexplore.ieee.org/abstract/document/9254282">
+            <h3 class="pub-title">Dual-Order Resource Allocation in 5G H-CRAN Using Matching Theory and Ant Colony Optimization Algorithm</h3>
+            
+            <p class="pub-meta">
+              <span class="venue-badge" data-i18n="pub3_venue_short">IECON 2020</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-full" data-i18n="pub3_venue_full">46th Annual Conference of the IEEE Industrial Electronics Society</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-year" data-i18n="pub3_year">2020</span>
+            </p>
+            
+            
+            
+            
+            <div class="pub-body">
+              <div class="pub-media">
+                <img src="../assets/img/5g.png" alt="5G resource allocation" width="480" height="360" loading="lazy">
+              </div>
+              <div class="pub-abstract">
+                <p class="abstract" id="abs3">
+                    The problem of resource allocation in a Heterogeneous Cloud Radio Access Network (H-CRAN) through user association is a combinatorial optimization problem, which is addressed in this paper.
+                    The process of resource allocation is divided into two orders- namely, Primary Order Resource Allocation and Secondary Order Resource Allocation.
+                    The association process is initiated at first by using Matching Theory based on the user's Quality of Service (QoS) and the available bandwidth of the best serving base station (BS).
+                    The varying QoS demands of the users are met using Ant Colony Optimization (ACO) on the remaining channels, which improves the average data rate and throughput of the users.
+                    Hence, the proposed algorithm combines both the cooperative game approach and the constructive greedy approach to enhance the performance metrics of the users.
+                    Results of simulations are compared with traditional resource allocation strategies to demonstrate the performance of the proposed algorithm for average data rates, access rates, and throughput.
+                </p>
+                <button class="see-more" aria-expanded="false" aria-controls="abs3" data-target="abs3">See more</button>
+              </div>
+            </div>
+          </article>
+
+
+
+          <article class="card pub-card" role="link" tabindex="0"
+                   aria-label="IoT based Security"
+                   data-href="https://ieeexplore.ieee.org/document/9108016">
+            <h3 class="pub-title">A Real-Time Controlled Closed Loop IoT Based Home Surveillance System for Android using Firebase</h3>
+            <p class="pub-meta">
+              <span class="venue-badge" data-i18n="pub4_venue_short">ICCAR 2020</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-full" data-i18n="pub4_venue_full">6th International Conference on Control, Automation and Robotics</span>
+              <span class="meta-sep">•</span>
+              <span class="venue-year" data-i18n="pub4_year">2020</span>
+            </p>            
+            
+            
+            <div class="pub-body">
+              <div class="pub-media">
+                <img src="../assets/img/iot.JPG" alt="IoT based Security" width="480" height="360" loading="lazy">
+              </div>
+              <div class="pub-abstract">
+                <p class="abstract" id="abs4">
+                    With the increasing application of the Internet of Things (IoT) devices in home automation, the prospect for home security has become even more integral.
+                    While there have been many notable developments in the field of smart home security systems for the past decade, the possibilities to develop and employ a multitude of features for an IoT based security system keep growing.
+                    Our proposed design introduces a cheap IoT based home security system that enables the user to have complete control over the system remotely as well as get live video feedback over the internet by using our custom- designed android application.
+                    The android application utilizes a real-time database (Firebase) for interpreting the sensor data. The android application also provides other features such as – password management, activation or deactivation of the system and alert option.
+                    The security system combines a motion sensor and a camera module for intruder detection and alerts the user instantly through an online alert notification. For evidence purposes, snapshots of the intruder can be taken during live video monitoring from the android application.
+                    Additionally, a GSM module is used to send an SMS alert about the intruder over the cellular network.
+                </p>
+                <button class="see-more" aria-expanded="false" aria-controls="abs4" data-target="abs4">See more</button>
+              </div>
+            </div>
+          </article>
+
+
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Touhid Ahmed</p>
+    </div>
+  </footer>
+
+  <!-- Minimal behavior: expand abstracts + make cards clickable via keyboard/mouse -->
+  <script>
+    // Expand/collapse abstracts
+    document.querySelectorAll('.see-more').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // don't trigger card navigation
+        const id = btn.dataset.target;
+        const abs = document.getElementById(id);
+        const open = abs.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.textContent = open ? 'See less' : 'See more';
+      });
+    });
+
+    // Card click navigation (ignore clicks on buttons)
+    document.querySelectorAll('.pub-card').forEach(card => {
+      const go = () => window.open(card.dataset.href, '_blank', 'noopener');
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('button')) return;
+        go();
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          go();
+        }
+      });
+    });
+
+    const el = document.getElementById('clock'); // whatever id you used
+
+    function fmtDate(lang, d) {
+      return new Intl.DateTimeFormat(lang, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit'
+      }).format(d);
+    }
+
+    function fmtTime(lang, d) {
+      return new Intl.DateTimeFormat(lang, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(d);
+    }
+
+    function tick() {
+      const lang = document.documentElement.getAttribute('lang') || 'en';
+      const now = new Date();
+      el.textContent = `${fmtDate(lang, now)} • ${fmtTime(lang, now)}`;
+      // schedule exactly on the next second to avoid drift
+      setTimeout(tick, 1000 - now.getMilliseconds());
+    }
+
+    tick();
+
+  </script>
+</body>
+</html>

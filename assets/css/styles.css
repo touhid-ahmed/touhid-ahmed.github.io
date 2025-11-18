@@ -1,0 +1,897 @@
+/* ===== Dark Theme (264653, 2a9d8f, e9c46a, f4a261, e76f51) ===== */
+:root{
+  --bg:#0f171a;         /* page background */
+  --surface:#172126;    /* cards / controls */
+  --surface-2:#1c2a30;  /* hover / raised */
+  --fg:#e6edf3;         /* primary text */
+  --muted:#9fb3bd;      /* secondary text */
+  --border:rgba(230,237,243,.12);
+
+  --accent:#2a9d8f;     /* primary accent */
+  --accent2:#e76f51;    /* secondary accent */
+  --accent3:#ff0800;    /* support accent */
+  --accent4:#ffffff;    /* soft highlight */
+
+  --header-tint:linear-gradient(90deg, rgba(42,157,143,.10), rgba(231,111,81,.08));
+  --shadow:0 6px 18px rgba(0,0,0,.35);
+  --glow:0 6px 18px rgba(42,157,143,.30);
+
+  --container:980px;
+}
+
+/* ===== Base ===== */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--fg);
+  background:var(--bg);
+}
+img{ max-width:100%; height:auto; display:block; }
+a{ color:var(--accent); text-decoration:none; }
+.container{ max-width:var(--container); margin:0 auto; padding:0 16px; }
+h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
+.section{ padding:24px 0; }
+
+.section > .container > h2,
+.section > h2{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* optional polish */
+  margin-bottom: 12px;
+}
+
+/* Consistent full-width divider for every section after the first */
+.section { position: relative; }
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+/* Center the actual content inside the hero */
+.hero { padding: 24px 0; } /* keep spacing, no flex here */
+.hero .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers the avatar, name, tags, icons */
+  text-align: center;
+  gap: 8px;
+}
+
+/* Avatar: larger, stays circular, centered, no cropping */
+.avatar{
+  width: clamp(160px, 28vw, 250px);  /* bigger than before */
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;               /* center even if flex is removed elsewhere */
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* keep Option B (no crop) */
+  object-position: center top;
+  transform: scale(0.96);  /* tiny zoom-out so edges fit nicely */
+}
+
+/* Add breathing room between tags and social icons */
+.tags   { margin-top: 1px; }
+.socials{ margin-top: 10px; }
+
+
+/* ===== Header / Nav ===== */
+.site-header{ background:var(--header-tint); border-bottom:1px solid var(--border); }
+
+/* Centered menu, right controls */
+.nav{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr; /* left spacer | menu | right controls */
+  align-items:center;
+  gap:16px;
+  height:56px;
+}
+.menu{
+  grid-column:2;
+  justify-self:center;
+  display:flex; gap:10px;
+  list-style:none; margin:0; padding:0;
+}
+.nav-right{
+  grid-column:3;
+  justify-self:end;
+  display:flex; align-items:center; gap:14px;
+}
+
+/* left clock area */
+.nav-left{
+  justify-self:start;
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+  color:var(--muted);
+  font-size:.95rem;
+  font-variant-numeric: tabular-nums; /* cleaner ticking */
+  letter-spacing:.2px;
+}
+
+/* Menu links as pills */
+.menu a{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid transparent;
+  background:transparent;
+  color:var(--fg);
+  font-weight:600;
+  transition:background .15s ease, border-color .15s ease, box-shadow .15s ease, transform .12s ease;
+}
+.menu a:hover,
+.menu a:focus-visible{
+  background:var(--surface-2);
+  border-color:var(--accent);
+  box-shadow:var(--glow);
+  transform:translateY(-1px);
+}
+.menu a[aria-current="page"]{
+  background:var(--surface-2);
+  border-color:var(--accent);
+}
+
+/* Resume dropdown */
+.resume-menu{ position:relative; }
+.resume-menu summary{
+  list-style:none; display:flex; align-items:center; gap:6px;
+  cursor:pointer; padding:6px 10px; border-radius:10px;
+  border:1px solid var(--border); background:var(--surface); color:var(--fg);
+  transition:box-shadow .15s ease, border-color .15s ease, transform .12s ease, background .15s ease;
+  user-select:none;
+}
+.resume-menu summary::-webkit-details-marker{ display:none; }
+.resume-menu summary:hover{
+  transform:translateY(-1px);
+  border-color:var(--accent);
+  box-shadow:var(--glow);
+  background:var(--surface-2);
+}
+.resume-menu .icon{ width:18px; height:18px; }
+.resume-menu .chev{ width:14px; height:14px; opacity:.8; transition:transform .15s ease; }
+.resume-menu[open] .chev{ transform:rotate(180deg); }
+.resume-list{
+  position:absolute; right:0; top:100%; margin-top:8px;
+  background:var(--surface); border:1px solid var(--border); border-radius:12px;
+  box-shadow:var(--shadow);
+  min-width:200px; padding:8px;
+  display:flex; flex-direction:column; gap:4px;
+  z-index:20;
+}
+.resume-list a{
+  padding:10px 12px; border-radius:10px; color:var(--fg);
+}
+.resume-list a:hover{ background:rgba(42,157,143,.12); }
+
+/* Language toggle */
+.lang-toggle{
+  display:inline-flex; border:1px solid var(--border); border-radius:10px; overflow:hidden;
+  background:var(--surface);
+}
+.lang-toggle button{
+  background:transparent; color:var(--fg); border:0; padding:6px 12px;
+  font-size:.9rem; cursor:pointer;
+}
+.lang-toggle button.on{ background:var(--accent); color:#fff; }
+.menu a:focus-visible,
+.icon-btn:focus-visible,
+.resume-menu summary:focus-visible {
+  outline:2px solid rgba(42,157,143,.55);
+  outline-offset:2px;
+}
+
+/* ===== Hero ===== */
+
+
+
+
+
+
+/* Tags */
+.tags{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+.tag{
+  padding:4px 10px; border-radius:999px; font-size:.95rem;
+  border:1px solid var(--border); background:var(--surface); color:var(--fg);
+}
+.tags .tag:nth-child(1){ background:rgba(42,157,143,.18); border-color:rgba(42,157,143,.35); }
+.tags .tag:nth-child(2){ background:rgba(244,162,97,.18); border-color:rgba(244,162,97,.35); }
+.tags .tag:nth-child(3){ background:rgba(233,196,106,.20); border-color:rgba(233,196,106,.40); }
+
+/* ===== Social icons ===== */
+.socials{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:4px; }
+
+
+.icon-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:50%;
+  border:1px solid var(--border); background:var(--surface); color:var(--fg);
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.icon{ width:20px; height:20px; display:block; }
+
+
+
+.brand-linkedin .icon *,
+.brand-github   .icon *,
+.brand-scholar  .icon *,
+.brand-twitter  .icon *,
+.brand-rg       .icon * {
+  fill: currentColor;
+}
+
+/* Gmail: white chip + brand colors from the SVG itself */
+.icon-btn.brand-email {
+  background:#fff;
+  color:inherit;                 /* no forced glyph color */
+  border-color:var(--border);    /* subtle border */
+}
+
+/* ResearchGate: green background + white logo */
+.icon-btn.brand-rg {
+  background:#00caba;
+  color:#fff;                    /* makes the glyph white via currentColor */
+  border-color:transparent;
+}
+
+/* The rest stay as you had them */
+.icon-btn.brand-linkedin{ background:#0a66c2; color:#fff; border-color:transparent; }
+.icon-btn.brand-github  { background:#0d1117; color:#fff; border-color:transparent; }
+.icon-btn.brand-scholar { background:#4285f4; color:#fff; border-color:transparent; }
+.icon-btn.brand-twitter { background:#000;    color:#fff; border-color:transparent; }
+
+
+.icon-btn:hover{
+  transform:translateY(-1px) scale(1.06);
+  box-shadow:var(--glow);
+  border-color:transparent;
+  filter:saturate(1.05);
+}
+
+/* ===== About & Skills ===== */
+.about{ 
+    color:var(--muted); 
+    max-width:70ch; 
+    margin:0 auto;
+
+    text-align: justify;          /* justify lines */
+    text-align-last: left;        /* keep the last line left-aligned (optional) */
+    hyphens: auto;                /* nicer justification on narrow screens */
+    -webkit-hyphens: auto;
+
+}
+.feature-list{
+  max-width:70ch; margin:8px auto 0; padding-left:18px; text-align:left; color:var(--fg);
+}
+.feature-list li{ margin:6px 0; }
+
+/* ===== Cards (generic) ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+  gap:16px;
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+
+/* ===== Footer ===== */
+.site-footer{
+  border-top:1px solid var(--border);
+  margin-top:24px; padding:12px 0;
+  font-size:.95rem; color:var(--muted); text-align:center;
+}
+
+
+/* Hobbies: fixed 2×2 grid (1 column on small screens) */
+.hobby-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px;
+  list-style: none;   /* no bullets */
+  padding-left: 0;    /* remove left indent */
+  margin: 10px 0 0;   /* keep your existing top margin */
+}
+@media (max-width:720px){
+  .hobby-grid{ grid-template-columns:1fr; }
+}
+
+.hobby-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  transition:transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+
+/* Make hobby SVGs always follow the color you set on the badge */
+.hobby-card .icon path,
+.hobby-card .icon polygon,
+.hobby-card .icon circle,
+.hobby-card .icon rect,
+.hobby-card .icon line,
+.hobby-card .icon polyline,
+.hobby-card .icon ellipse,
+.hobby-card .icon g {
+  fill: currentColor !important; /* lock to the computed color */
+}
+
+/* Set the intended colors per hobby (override the default .icon-wrap color) */
+.icon-watch  { color: #8b5cf6; }       /* example purple */
+.icon-game   { color: var(--accent2); }/* your orange, keep if you want it */
+.icon-foodie { color: var(--accent3); }/* your red */
+.icon-anime  { color: var(--accent4); }/* your green */
+
+
+
+/* Per-hobby variants (using your palette) */
+.hobby-card.watch {  background: rgb(2, 33, 12);  border-color: rgba(42,157,143,.35); } /* teal */
+.hobby-card.anime {  background: rgba(71, 71, 66, 0.994); border-color: rgba(233,196,106,.40); } /* sand */
+.hobby-card.game  {  background: #4b5c75;  border-color: #080d13; } /* orange */
+.hobby-card.foodie{  background: rgb(94, 1, 1);  border-color: rgba(231,111,81,.40); } /* coral */
+
+/* (optional) a gentle hover lift */
+.hobby-card:hover { transform: translateY(-1px); box-shadow: var(--glow); }
+
+
+.hobby-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
+  background:var(--surface-2);
+  box-shadow:var(--glow);
+}
+
+.icon-wrap{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px; height:42px;
+  border-radius:12px;
+  background:rgba(42,157,143,.18);
+  color:var(--accent);
+}
+
+/* Variants */
+.icon-watch { background:rgb(11, 172, 49); color:var(--accent4);}  /* sand */
+.icon-game  { background:#0C1E4C;  color:var(--accent4); }  /* coral */
+.icon-foodie{ background:rgba(255, 255, 255, 0.864);  color:var(--accent3); }  /* orange */
+.icon-anime { background: rgba(248, 81, 9, 0.823); color: var(--accent4); } /* sand + highlight */
+.hobby-title{
+  margin:0;
+  font-size:1rem;
+  font-weight:600;
+}
+
+
+/* Volunteering layout */
+.vol-grid{
+  display:grid;
+  grid-template-columns: 1fr;  /* vertical stack */
+  gap:16px;
+}
+
+/* Optional: a distinct accent stripe for volunteering cards */
+.vol-card{ border-left:4px solid var(--accent3); }  /* uses your palette */
+.vol-card h3{ margin:0 0 4px; font-size:1.05rem; }
+.vol-card .meta{ color:var(--muted); font-size:.95rem; margin:4px 0 8px; }
+
+
+
+
+/* ===== Responsive ===== */
+@media (max-width:680px){
+  .name{ font-size:1.6rem; }
+  .menu{ gap:10px; }
+  .resume-list{ right:auto; left:0; }
+}
+
+
+/* ---- Research page additions ---- */
+
+/* Center section headings on this page too */
+.section .container > h2 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Research interests list */
+.ri-list {
+  max-width: 70ch;
+  margin: 12px auto 0;
+  padding-left: 1.2rem; /* keep bullets */
+  color: var(--fg);
+}
+.ri-list li { margin: 8px 0 14px; }
+.ri-list h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.ri-desc { margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.55; }
+
+/* Publications */
+.pub-list {
+  display: grid;
+  gap: 16px;
+}
+
+.pub-card {
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.pub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+  border-color: var(--accent);
+}
+
+.pub-title {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.pub-body {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+/* Left column width for the media */
+.pub-body { 
+  display: grid;
+  grid-template-columns: 240px 1fr;  /* fixed media column */
+  gap: 14px;
+  align-items: start;
+}
+
+/* Fixed 4:3 frame for all thumbs */
+.pub-figure{
+  width: 100%;
+  aspect-ratio: 4 / 3;       /* gives 240x180 in this column */
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;          /* hide any crop */
+  padding: 0;                /* remove old padding if any */
+}
+
+/* Fill the frame; switch to 'contain' if you hate cropping */
+.pub-figure img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* uniform size, slight crop possible */
+  display: block;
+}
+
+/* Stack on small screens */
+@media (max-width: 720px){
+  .pub-media{ grid-template-columns: 1fr; }
+  .pub-figure{ max-height: none; min-height: 0; }
+  .pub-figure img{ max-height: none; }
+}
+
+
+/* Abstract clamp + fade */
+.pub-abstract { position: relative; }
+
+.abstract {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+
+  /* Clamp: prefixed + standard (keep this order) */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;   /* Safari/Chrome */
+  line-clamp: 6;           /* Draft standard / linter */
+
+  overflow: hidden;
+  position: relative;
+}
+
+.abstract::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2.2rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0), var(--surface));
+  pointer-events: none;
+}
+
+.abstract.is-open {
+  display: block;
+  -webkit-line-clamp: initial;
+  line-clamp: initial;
+  overflow: visible;
+}
+
+.abstract.is-open::after { display: none; }
+
+/* See more button (unchanged) */
+.see-more {
+  margin-top: 8px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.see-more:hover {
+  background: var(--accent);
+  color: #061a17;
+}
+
+
+/* Publication meta (conference/venue line) */
+.pub-meta{
+  margin: -4px 0 10px;        /* tucks it under the title nicely */
+  color: var(--muted);
+  font-size: .95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Optional: make the conference acronym a pill badge */
+.venue-badge{
+  background: rgba(42,157,143,.18);
+  color: var(--accent);
+  border: 1px solid rgba(42,157,143,.35);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.meta-sep{ opacity:.45; } /* the tiny • separator */
+
+/* Responsive */
+@media (max-width: 720px){
+  .pub-body { grid-template-columns: 1fr; }
+  .pub-media{ grid-template-columns: 1fr; }
+  .pub-figure{ max-height: none; min-height: 0; }
+  .pub-figure img{ max-height: none; }
+}
+
+/* ---- Projects page ---- */
+
+/* === Projects: mirror publication card layout === */
+
+/* Projects: vertical spacing between cards */
+.proj-list{
+  display: grid;
+  gap: 16px; /* nice responsive gap */
+  /* or simply: gap: 24px; */
+}
+
+
+
+
+.proj-card{
+  cursor:pointer;
+  transition: transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.proj-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+  border-color: var(--accent);
+}
+
+.proj-title{
+  margin:0 0 10px;
+  font-size:1.1rem;
+}
+
+/* ---- Projects: grid layout + overflow fixes ---- */
+.proj-body{
+  display: grid;
+  grid-template-columns: 240px 1fr; /* left image, right text */
+  gap: 16px;
+  align-items: start;
+}
+
+.proj-figure{
+  margin: 0;                 /* reset default figure margins */
+  width: 100%;
+  aspect-ratio: 4 / 3;       /* uniform frame */
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;          /* hide any crop */
+}
+
+.proj-figure img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* or 'contain' if you prefer no crop */
+}
+
+.proj-desc{
+  min-width: 0;              /* let text wrap instead of overflowing */
+}
+
+.proj-desc .desc{
+  margin: 0;                 /* tidy spacing */
+}
+
+/* Mobile: stack image above text */
+@media (max-width: 720px){
+  .proj-body{ grid-template-columns: 1fr; }
+}
+
+.desc{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+
+  /* Clamp: prefixed + standard */
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:6;
+  line-clamp:6;
+
+  overflow:hidden;
+  position:relative;
+}
+.desc::after{
+  content:"";
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:2.2rem;
+  background:linear-gradient(180deg, rgba(0,0,0,0), var(--surface));
+  pointer-events:none;
+}
+.desc.is-open{
+  display:block;
+  -webkit-line-clamp:initial;
+  line-clamp:initial;
+  overflow:visible;
+}
+.desc.is-open::after{ display:none; }
+
+/* See more button (reuse your styling if you already have it) */
+.proj-desc .see-more{
+  margin-top:8px;
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  border-radius:999px;
+  padding:6px 10px;
+  font-weight:600;
+  cursor:pointer;
+}
+.proj-desc .see-more:hover{
+  background:var(--accent);
+  color:#061a17;
+}
+
+/* Optional: right-aligned action row for a "Report" button */
+.proj-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:10px;
+}
+.proj-actions .btn{
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  border-radius:10px;
+  padding:6px 10px;
+  font-weight:600;
+}
+.proj-actions .btn:hover{
+  background:var(--accent);
+  color:#061a17;
+}
+
+/* Stack on small screens */
+@media (max-width:720px){
+  .proj-body{ grid-template-columns:1fr; }
+}
+
+
+
+/* === Certifications === */
+/* Certifications list spacing */
+/* === Certifications === */
+/* === Certifications (single source of truth) === */
+/* === Certifications === */
+.cert-list{
+  display:grid;
+  gap:16px;
+}
+
+.cert-card{
+  cursor:pointer;
+  transition:transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.cert-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--glow);
+  border-color:var(--accent);
+}
+
+.cert-title{
+  margin:0 0 10px;
+  font-size:1.1rem;
+  text-align:center;
+}
+
+/* Two-column layout with explicit areas */
+.cert-body{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  grid-template-areas:"logo desc";
+  gap:16px;
+  align-items:start;
+}
+
+/* Left: logo box (reset figure margins if you use <figure>) */
+.cert-logo,
+.cert-figure{
+  grid-area:logo;
+  margin:0;
+  width:100%;
+  aspect-ratio:1 / 1;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px;
+  overflow:hidden;
+}
+.cert-logo img,
+.cert-figure img{
+  display:block;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+/* Right: description column */
+.cert-desc{
+  grid-area:desc;
+  min-width:0;              /* lets text wrap inside the 1fr track */
+  display:flex;
+  flex-direction:column;
+}
+
+/* Clamp + fade */
+.cert-desc .desc{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+  position:relative;
+
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:4;
+  line-clamp:4;
+
+  overflow:hidden;
+  overflow-wrap:anywhere;
+}
+.cert-desc .desc::after{
+  content:"";
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:2.2rem;
+  background:linear-gradient(180deg, rgba(0,0,0,0), var(--surface));
+  pointer-events:none;
+}
+.cert-desc .desc.is-open{
+  display:block;
+  -webkit-line-clamp:initial;
+  line-clamp:initial;
+  overflow:visible;
+}
+.cert-desc .desc.is-open::after{ display:none; }
+
+/* Reusable button */
+.btn{
+  display:inline-block;
+  cursor:pointer;
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  border-radius:10px;
+  padding:6px 12px;
+  font-weight:600;
+  text-decoration:none;
+  transition:background .15s ease, color .15s ease, transform .12s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.btn:hover,
+.btn:focus-visible{
+  background:var(--accent);
+  color:#061a17;
+  box-shadow:var(--glow);
+  transform:translateY(-1px);
+  border-color:transparent;
+}
+
+/* Center “See more” and “View” */
+.cert-desc .see-more{
+  align-self: flex-start;
+  margin-top: 8px;
+}
+.cert-desc .see-more:hover{ background:var(--accent); color:#061a17; }
+
+.cert-actions{
+  display:flex;
+  justify-content:right;
+  gap:8px;
+  margin-top:10px;
+}
+
+/* Stack on small screens */
+@media (max-width:720px){
+  .cert-body{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "logo"
+      "desc";
+  }
+  .cert-logo,
+  .cert-figure{ aspect-ratio:auto; }
+}
+
+
+/* Rich description block that can contain <p> and <ul> */
+.cert-desc .desc.rich {
+  /* override the -webkit-line-clamp approach used for plain paragraphs */
+  display: block;
+  -webkit-line-clamp: initial;
+  line-clamp: initial;
+
+  /* use height clamp that works with nested elements */
+  max-height: 6em;     /* tweak to taste */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fade-out for the rich block */
+.cert-desc .desc.rich::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2.2rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0), var(--surface));
+  pointer-events: none;
+}
+
+/* Expanded state */
+.cert-desc .desc.rich.is-open {
+  max-height: none;
+  overflow: visible;
+}
+.cert-desc .desc.rich.is-open::after { display: none; }
+
+/* Tidy internal spacing and bullets */
+.cert-desc .desc.rich > p { margin: 0 0 8px; }
+.cert-desc .desc.rich .key-points {
+  margin: 6px 0 0;
+  padding-left: 1.2rem;
+}
+.cert-desc .desc.rich .key-points li { margin: 4px 0; }

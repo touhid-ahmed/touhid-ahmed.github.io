@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects – Touhid Ahmed</title>
+  <link rel="icon" href="../assets/icons/icon_32.png" type="image/png">
+  <meta name="description" content="Selected software & robotics projects." />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <!-- Header / Nav (same as home) -->
+  <header class="site-header">
+    <nav class="container nav">
+
+      <div class="nav-left">
+        <time id="clock" aria-live="polite">—</time>
+      </div>
+
+      <ul class="menu" role="menubar">
+        <li role="none"><a role="menuitem" href="../index.html" data-i18n="nav_home">Home</a></li>
+        <li role="none"><a role="menuitem" href="../projects/index.html" aria-current="page" data-i18n="nav_projects">Projects</a></li>
+        <li role="none"><a role="menuitem" href="../research/index.html" data-i18n="nav_research">Research</a></li>
+        <li role="none"><a role="menuitem" href="../certifications/index.html" data-i18n="nav_certs">Certifications</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <main>
+    <!-- Projects -->
+    <section class="section">
+      <div class="container">
+        <h2>Projects</h2>
+
+        <div class="proj-list">
+
+          <!-- Project 1 -->
+              <article class="card proj-card"
+                    role="link" tabindex="0"
+                    data-url="https://github.com/touhid-ahmed/tc200_hda"
+                    aria-label="Open project: Simulation of Autonomous Mobile Robot in Warehouse">
+              <h3 class="proj-title">Simulation of Autonomous Mobile Robot in Warehouse</h3>
+
+              <div class="proj-body">
+                <figure class="proj-figure">
+                  <img src="../assets/img/tc200.png"
+                      alt="Warehouse AMR simulation thumbnail" loading="lazy">
+                </figure>
+
+                <div class="proj-desc">
+                  <p class="desc" id="proj1">
+                    The utilisation of the TC200 Autonomous Mobile Robot (AMR) brings autonomous navigation to the forefront.
+                    This enables the robot to autonomously traverse the warehouse, deftly avoiding obstacles while optimising path planning.
+                    By automating navigation, this project eliminates the need for manual laborious tasks and reduces the risk of human errors, significantly enhancing warehouse productivity.
+
+                    Object tracking, the project's second key component, leverages advanced computer vision algorithms and sensors like a camera and LIDAR to precisely detect and monitor objects, particularly coloured storage bins. 
+                    This innovation streamlines the retrieval process, making it faster and more efficient. 
+                    It also minimises errors in object identification, contributing to the project's overall accuracy.
+                  </p>
+
+                  <!-- must point at the paragraph’s id -->
+                  <button class="see-more"
+                          data-target="proj1"
+                          aria-controls="proj1"
+                          aria-expanded="false">See more</button>
+
+                  <!-- optional actions (report/demo) -->
+                  <div class="proj-actions">
+                    <a class="btn" href="../assets/reports/tc200.pdf" target="_blank" rel="noopener">Report</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          <!-- Project 2 -->
+            <article class="card proj-card" data-url="...">
+              <h3 class="proj-title">e-Yantra Robotics Competition 2020-2021</h3>
+
+              <div class="proj-body">
+                <figure class="proj-figure">
+                  <img src="../assets/img/comp.png" alt="Project thumbnail">
+                </figure>
+
+                <div class="proj-desc">
+                  <p class="desc" id="proj2">
+                    In the e-Yantra Sahayak Bot theme, the goal was to alleviate lab manpower by deploying an AGV that can autonomously traverse indoor layouts and shuttle boxes between pick-up and drop-off zones.
+                    I implemented ROS1 packages for environment mapping, path planning, obstacle avoidance, and object handling, then integrated them into a cohesive navigation pipeline.
+                  </p>
+                  <button class="see-more" data-target="proj2" aria-controls="proj2" aria-expanded="false">See more</button>
+
+
+                  <div class="proj-actions">
+                    <!-- Add download if you want a direct file download -->
+                    <a class="btn" href="https://drive.google.com/drive/folders/1Wtj-EXcZcQ6msTLR375wDBfqwaOZqRJA?usp=sharing" target="_blank" rel="noopener">Demo</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          <!-- Project 3 -->
+
+          <article class="card proj-card"
+                role="link" tabindex="0"
+                data-url="https://github.com/touhid-ahmed/red_ros"
+                aria-label="Open project: Simulation of Autonomous Mobile Robot in Warehouse">
+          <h3 class="proj-title">RED :: ROS</h3>
+
+          <div class="proj-body">
+            <figure class="proj-figure">
+              <img src="../assets/img/red_ros.PNG"
+                  alt="red-ROS" loading="lazy">
+            </figure>
+
+            <div class="proj-desc">
+              <p class="desc" id="proj3">
+                  Built a ROS1 pipeline that detects red objects from a live webcam feed.
+                  A publisher node captures frames and publishes them as sensor_msgs/Image; a subscriber uses cv_bridge to convert to OpenCV, thresholds in HSV for red, extracts contours, and draws overlays around detected objects.
+                  This provides a simple, reliable front-end for tasks like tracking or triggering robot actions.
+              </p>
+
+              <!-- must point at the paragraph’s id -->
+              <button class="see-more"
+                      data-target="proj3"
+                      aria-controls="proj3"
+                      aria-expanded="false">See more</button>
+
+            </div>
+          </div>
+        </article>
+          
+
+
+
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p data-i18n="footer">© Touhid Ahmed · Last updated November 2025</p>
+    </div>
+  </footer>
+
+  <!-- i18n + interactions -->
+
+  <script>
+    // Make any card with data-href (pub) or data-url (project) clickable + keyboard accessible
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('.pub-card, .proj-card');
+      if (card && (card.dataset.href || card.dataset.url)) {
+        // Avoid hijacking clicks on inner links/buttons
+        if (!e.target.closest('a, button')) {
+          const url = card.dataset.href || card.dataset.url;
+          window.open(url, '_blank', 'noopener');
+        }
+      }
+      // See more toggle (works for both .abstract and .desc)
+      const btn = e.target.closest('.see-more');
+      if (btn) {
+        const container = btn.closest('.pub-abstract, .proj-desc') || btn.parentElement;
+        const para = container.querySelector('.abstract, .desc');
+        if (para) {
+          const open = para.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          btn.textContent = open ? 'See less' : 'See more';
+        }
+      }
+    });
+
+    // Keyboard: open card on Enter/Space
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const card = e.target.closest('.pub-card, .proj-card');
+      if (card && (card.dataset.href || card.dataset.url)) {
+        e.preventDefault();
+        const url = card.dataset.href || card.dataset.url;
+        window.open(url, '_blank', 'noopener');
+      }
+    });
+
+    const el = document.getElementById('clock'); // whatever id you used
+
+    function fmtDate(lang, d) {
+      return new Intl.DateTimeFormat(lang, {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit'
+      }).format(d);
+    }
+
+    function fmtTime(lang, d) {
+      return new Intl.DateTimeFormat(lang, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(d);
+    }
+
+    function tick() {
+      const lang = document.documentElement.getAttribute('lang') || 'en';
+      const now = new Date();
+      el.textContent = `${fmtDate(lang, now)} • ${fmtTime(lang, now)}`;
+      // schedule exactly on the next second to avoid drift
+      setTimeout(tick, 1000 - now.getMilliseconds());
+    }
+
+    tick();
+  </script>
+
+</body>
+</html>
