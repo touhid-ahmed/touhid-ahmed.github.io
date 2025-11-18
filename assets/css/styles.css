@@ -3,6 +3,7 @@
   --bg:#0f171a;         /* page background */
   --surface:#172126;    /* cards / controls */
   --surface-2:#1c2a30;  /* hover / raised */
+  --surface-3:#d4e4dc;
   --fg:#e6edf3;         /* primary text */
   --muted:#9fb3bd;      /* secondary text */
   --border:rgba(230,237,243,.12);
@@ -248,6 +249,18 @@ h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
 .icon-btn.brand-github  { background:#0d1117; color:#fff; border-color:transparent; }
 .icon-btn.brand-scholar { background:#4285f4; color:#fff; border-color:transparent; }
 .icon-btn.brand-twitter { background:#000;    color:#fff; border-color:transparent; }
+
+
+/* Resume: neutral chip, white glyph (inherits currentColor) */
+.icon-btn.brand-resume{
+  background: var(--surface-2);
+  color: #fff;
+  border-color: var(--border);
+}
+.brand-resume .icon *{
+  fill: currentColor;
+}
+
 
 
 .icon-btn:hover{
@@ -896,8 +909,6 @@ h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
 }
 .cert-desc .desc.rich .key-points li { margin: 4px 0; }
 
-
-
 /* Let grid children shrink (prevents hidden/min-content overflow) */
 .nav, .menu, .nav-left, .nav-right { min-width: 0; }
 
@@ -926,14 +937,6 @@ h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
     padding:8px 0;
   }
   .nav-left  { grid-area: left; }
-  .nav-left time{
-    max-width: 100%;
-    white-space: normal;   /* allow wrapping */
-    overflow: visible;     /* no clipping */
-    text-overflow: clip;   /* disable ellipsis */
-    line-height: 1.2;      /* tighter two-line stack */
-    font-size: .9rem;      /* keep legible */
-  }
   .nav-right { grid-area: right; justify-self:end; }
   .menu{
     grid-area: menu;
@@ -942,3 +945,40 @@ h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
   }
   .menu a{ padding:6px 10px; } /* slimmer pills so they fit better */
 }
+
+
+/* Tech & Tools */
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+  gap:16px;
+}
+
+.tool-card h3{
+  margin:0 0 10px;
+  font-size:1.05rem;
+  text-align: center;
+}
+
+.tool-icons{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(56px,1fr));
+  gap:10px;
+}
+
+.tech{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:56px;
+  border:1px solid var(--border);
+  background:var(--surface-3);
+  border-radius:12px;
+}
+
+.tech i{ font-size:28px; line-height:1; }        /* Devicon glyphs */
+.tech img.brand{ width:28px; height:28px; object-fit:contain; display:block; }
+
+.icon-svg{ width:36px; height:36px; display:inline-block; }
+
+
