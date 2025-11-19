@@ -160,33 +160,247 @@
       </div>
     </section>
 
-    <!-- Skill Highlights -->
-    <section class="section">
+
+    <!-- Career Timeline -->
+
+    <section class="section" id="career">
       <div class="container">
-        <h2 data-i18n="skills_h2">Highlights</h2>
-        <ul class="feature-list">
-          <li data-i18n="skill1">1+ years of professional experience in backend Software development and testing.</li>
-          <li data-i18n="skill2">Built REST APIs with Django/DRF & FastAPI—auth, pagination, file uploads—documented via OpenAPI.</li>
-          <li data-i18n="skill3">5+ years of experience with Object Oriented Programming (OOP) using Python.</li>
-          <li data-i18n="skill4">Experienced with Linux based development in Mobile robotics (ROS framework, Gazebo Simulation, MoveIt, Rviz).</li>
-          <li data-i18n="skill5">Experienced in automotive testing, test-bench setup and hardware interfacing using Vector CANoe.</li>
-          <li data-i18n="skill6">Research mindset with peer-reviewed publications, experimental design, data analysis, and scientific writing.</li>
-          <li data-i18n="skill7">Languages: English (fluent), German (B1+)</li>
-        </ul>
+        <h2 data-i18n="career_h2">Career Timeline</h2>
+
+        <ol class="timeline">
+          <!-- Company with stacked roles -->
+          <li class="t-item">
+            <div class="t-left">
+              <figure class="t-logo">
+                <img src="assets/img/segula_logo.png" alt="SEGULA Technologies logo">
+              </figure>
+              <div class="t-date">
+                <time datetime="2023-07">Jul 2023</time> – <time datetime="2025-10">Oct 2025</time>
+              </div>
+            </div>
+
+            <div class="t-right">
+              
+              <h3 class="t-company">
+                <a class="t-company-link"
+                  href="https://www.segulatechnologies.com/en/"
+                  target="_blank" rel="noopener">
+                  SEGULA Technologies GmbH · Rüsselsheim, Germany
+                </a>
+              </h3>
+
+
+              <!-- Role card #1 (add more .role-card blocks if needed) -->
+              <section class="role-card">
+                <div class="t-meta">
+                  <span class="t-title" data-i18n="t_title_swdev">Software Developer</span>
+                </div>
+
+                <p class="t-summary">
+                  Developed multiple backend and automation tools in Python for vehicle data and project reporting workflows.
+                </p>
+
+                <h4 class="t-subhead" data-i18n="t_selected_projects">Selected projects</h4>
+                <div class="t-projects">
+                  <div class="t-proj">
+                    <h5 class="p-title">Vehicle Fleet Management Web App</h5>
+                    <ul class="p-list">
+                      <li>Designed backend architecture with REST APIs, authentication, authorisation and reporting.</li>
+                      <li>Implemented unit, integration, and UAT tests.</li>
+                    </ul>
+                    <div class="p-tags">
+                      <span class="tag">Django/DRF</span><span class="tag">PostgreSQL</span><span class="tag">PyTest</span><span class="tag">Postman</span>
+                      <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+                    </div>
+                  </div>
+
+                  <div class="t-proj">
+                    <h5 class="p-title">Desktop Reporting Tool</h5>
+                    <ul class="p-list">
+                      <li>GUI for Excel parsing & report generation</li>
+                      <li>TOML-driven layouts with parquet caching.</li>
+                      <li>Trimmed down manual slide prep by ~30+ min/week.</li>
+                    </ul>
+                    <div class="p-tags">
+                      <span class="tag">Python3</span><span class="tag">Pandas</span><span class="tag">PySide6</span><span class="tag">Pyarrow</span><span class="tag">Pyinstaller</span>
+                    </div>
+                  </div>
+
+                  <div class="t-proj">
+                    <h5 class="p-title">RFQ Management Dashboard</h5>
+                    <ul class="p-list">
+                      <li>Built the preprocessing pipeline.</li>
+                      <li>Text extraction with OCR and image processing.</li>
+                    </ul>
+                    <div class="p-tags">
+                      <span class="tag">Python3</span><span class="tag">Pandas</span><span class="tag">Pytesseract</span><span class="tag">pillow</span><span class="tag">matplotlib</span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </section>
+
+              <section class="role-card">
+                <div class="t-meta">
+                  <span class="t-title" data-i18n="t_title_intern">Intern</span>
+                </div>
+
+                    <ul class="t-bullets clamp" id="segula-intern-bullets">
+                      <li>Conducted a feasibility study of communication methods employed in Swarm vehicle testing. </li>
+                      <li><strong>AI Recruiter:</strong> Automated candidate outreach by parsing LinkedIn profile data and prompt engineering using OpenAI API to compose personalized messages.</li>
+                      <li>Won <strong>2nd place</strong> in <strong>DisrUPt 2023</strong> for the "AI Recruiter" concept.</li>
+                    </ul>
+                    <button class="see-more" aria-controls="segula-intern-bullets" data-target="segula-intern-bullets" aria-expanded="false">
+                      See more
+                    </button>  
+
+
+              </section>
+
+
+              <section class="role-card">
+                <div class="t-meta">
+                  <span class="t-title" data-i18n="t_title_workstudent">Working Student</span>
+                </div>
+                
+                <p class="t-summary">
+                  Implemented an algorithm in Python for turn detection in urban street networks using OSMnx for geospatial dataworkflows.
+                </p>    
+
+              </section>
+            </div>
+          </li>
+
+          <!-- Single-role company -->
+          <li class="t-item">
+            <div class="t-left">
+              <figure class="t-logo">
+                <img src="assets/img/techroad.png" alt="TechRoad logo">
+              </figure>
+              <div class="t-date">
+                <time datetime="2022-08">Aug 2022</time> – <time datetime="2022-10">Oct 2022</time>
+              </div>
+            </div>
+
+            <div class="t-right">
+              <h3 class="t-company">
+                <a class="t-company-link"
+                  href="https://firmeneintrag.creditreform.de/64283/6050372607/TECHROAD_GMBH"
+                  target="_blank" rel="noopener">
+                  TechRoad GmbH · Darmstadt, Germany
+                </a>
+              </h3>
+
+
+              <section class="role-card">
+                <div class="t-meta">
+                  <span class="t-title" data-i18n="t_title_intern">Intern</span> 
+                </div>
+
+                <ul class="t-bullets clamp" id="techroad-bullets">
+                  <li>Worked on ECU modules, CAN, SOME/IP, Automotive Ethernet, and UDS protocol.</li> 
+                  <li>Flashed the ECU module with the appropriate software release.</li> 
+                  <li>Performed diagnostics checks via the CANoe Simulation tool.</li> 
+                  <li>Verification, Validation, and Documentation of test results.</li>
+                </ul>
+                <button class="see-more" aria-controls="techroad-bullets" data-target="techroad-bullets" aria-expanded="false">
+                  See more
+                </button>
+              </section>
+            </div>
+          </li>
+
+          <!-- Single-role company -->
+          <li class="t-item">
+            <div class="t-left">
+              <figure class="t-logo">
+                <img src="assets/img/nsu.png" alt="North South University logo">
+              </figure>
+              <div class="t-date">
+                <time datetime="09-2019">Sep 2019</time> – <time datetime="04-2021">Apr 2021</time>
+              </div>
+            </div>
+
+            <div class="t-right">
+
+              <h3 class="t-company">
+                <a class="t-company-link"
+                  href="https://www.northsouth.edu/academic/seps/math-physics/"
+                  target="_blank" rel="noopener">
+                  Dept. of Mathematics &amp; Physics, North South University · Dhaka, Bangladesh
+                </a>
+              </h3>             
+              
+              
+              
+              <section class="role-card">
+                <div class="t-meta">
+                  <span class="t-title" data-i18n="t_title_labo">Lab Officer</span> 
+                </div>
+
+                <ul class="t-bullets clamp" id="nsu-bullets">
+                  <li>Reviewed experiments before student use.</li>
+                  <li>Set up laboratory materials and maintained lab documentation.</li>
+                  <li>Demonstrated techniques and delivered preparatory lectures during labs.</li>
+                  <li>Evaluated and graded lab reports.</li>
+                </ul>
+                <button class="see-more" aria-controls="nsu-bullets" data-target="nsu-bullets" aria-expanded="false">
+                  See more
+                </button>
+              </section>
+
+
+            </div>
+            
+          </li>
+
+          <li class="t-item">
+            <div class="t-left">
+              <figure class="t-logo">
+                <img src="assets/img/nsu.png" alt="North South University logo">
+              </figure>
+              <div class="t-date">
+                <time datetime="09-2019">Sep 2019</time> – <time datetime="09-2020">Sep 2020</time>
+              </div>
+            </div>
+
+            <div class="t-right">
+
+              <h3 class="t-company">
+                <a class="t-company-link"
+                  href="https://ece.northsouth.edu/"
+                  target="_blank" rel="noopener">
+                  Dept. of Electrical &amp; Computer Engineering, North South University · Dhaka, Bangladesh
+                </a>
+              </h3>             
+
+              <section class="role-card">
+                <div class="t-meta">
+                  <span class="t-title" data-i18n="t_title_ra">Research Assistant</span> 
+                </div>
+                <p>Designed and developed a scalable multi-robot intruder detection system using Robot Operating System (ROS).
+                  The work was published in the <strong>2020 IEEE International Symposium on Safety, Security, and Rescue Robotics (SSRR)</strong></p>
+              </section>
+            </div>
+            
+          </li>
+          
+        </ol>
       </div>
     </section>
 
-      <!-- <span class="tech" title=" "><img class="icon-svg" src=" " alt=" "></span> -->
+
 
 
     <section class="section" id="tech">
       <div class="container">
-        <h2>Technologies &amp; Tools</h2>
+        <h2 data-i18n="tech_h2">Technologies &amp; Tools</h2>
 
         <div class="tools-grid">
           <!-- 0. Programming Languages -->
           <article class="card tool-card">
-            <h3>Programming Languages</h3>
+            <h3 data-i18n="t_cat_langs">Programming Languages</h3>
             <div class="tool-icons">
               <span class="tech" title="Python"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" alt="python"></span>
               <span class="tech" title="C++"><img class="icon-svg" src= "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="cpp"></span>
@@ -197,7 +411,7 @@
 
           <!-- 1. Backend -->
           <article class="card tool-card">
-            <h3>Backend</h3>
+            <h3 data-i18n="t_cat_backend">Backend</h3>
             <div class="tool-icons">
               <span class="tech" title="django"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="django"></span>
               <span class="tech" title="drf"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/djangorest/djangorest-plain-wordmark.svg" alt="drf"></span>
@@ -211,14 +425,13 @@
               <span class="tech" title="swagger"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg" alt="swagger"></span>
               
   
-              
 
             </div>
           </article>
 
           <!-- 2. Front end -->
           <article class="card tool-card">
-            <h3>Front end</h3>
+            <h3 data-i18n="t_cat_frontend">Front end</h3>
             <div class="tool-icons">
               <span class="tech" title="HTML5"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" alt="HTML5"></span>
               <span class="tech" title="CSS3"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" alt="CSS3"></span>
@@ -228,7 +441,7 @@
 
           <!-- 3. Robotics & Control -->
           <article class="card tool-card">
-            <h3>Robotics &amp; Control</h3>
+            <h3 data-i18n="t_cat_robotics">Robotics &amp; Control</h3>
             <div class="tool-icons">
               <span class="tech" title="ROS"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ros/ros-original-wordmark.svg" alt="ROS"></span>
               <span class="tech" title="gazebo"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gazebo/gazebo-original-wordmark.svg" alt="gazebo"></span>
@@ -240,7 +453,7 @@
 
           <!-- 4. Tools -->
           <article class="card tool-card">
-            <h3>Tools</h3>
+            <h3 data-i18n="t_cat_tools">Tools</h3>
             <div class="tool-icons">
               <span class="tech" title="VS Code"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original-wordmark.svg" alt="VS Code"></span>
               <span class="tech" title="PyCharm"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg" alt="PyCharm"></span>
@@ -253,9 +466,6 @@
               <span class="tech" title="GitLab"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="GitLab"></span>
               <span class="tech" title="Trello"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trello/trello-original.svg" alt="Trello"></span>
               <span class="tech" title="Jira"><img class="icon-svg" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg" alt="Jira"></span>
-              
-
-
               
             </div>
           </article>
@@ -362,24 +572,27 @@
     de: {
       nav_home:"Startseite", nav_projects:"Projekte", nav_research:"Forschung", nav_certs:"Zertifikate",
       resume:"Lebenslauf", cv_en:"CV_EN", cv_de:"Lebenslauf",
-      tag_backend:"Softwareentwicklung & Testing", tag_robotics:"Mobile Robotik", tag_auto:"Automobil F&E",
+      tag_backend:"Softwareentwicklung & Test", tag_robotics:"Mobile Robotik", tag_auto:"Automobil-F&E",
       about_h2:"Überblick",
-      about_p:"Elektroingenieur (M.Sc. in Automatisierung, Deutsch B1+) mit einem forschungsorientierten Ansatz für zuverlässige Softwarelösungen.\
-      Ich entwerfe RESTful-APIs, erstelle solide Datenmodelle und liefere gut getestete Python/C++-Dienste. Darüber hinaus erstrecken sich meine Fachgebiete auf mobile Robotik\
-      und Automobilforschung und -entwicklung. Ich begeistere mich für autonome Softwaresysteme und bin gespannt darauf, die Möglichkeiten in einem industriellen Umfeld zu erkunden.",
-      skills_h2:"Höhepunkte",
-      skill1:"1+ Jahre Berufserfahrung in Backend-Softwareentwicklung und -Tests.",
-      skill2:"REST-APIs mit Django/DRF & FastAPI – Authentifizierung, Paginierung, Datei-Uploads – dokumentiert mit OpenAPI.",
-      skill3:"5+ Jahre Erfahrung mit objektorientierter Programmierung (OOP) in Python.",
-      skill4:"Linux-basierte Entwicklung in der mobilen Robotik (ROS-Framework, Gazebo-Simulation, MoveIt, RViz).",
-      skill5:"Automotive-Tests, Prüfstandaufbau und Hardware-Anbindung mit Vector CANoe.",
-      skill6:"Forschungsorientierte Arbeitsweise mit begutachteten Publikationen, Versuchsdesign, Datenanalyse und wissenschaftlichem Schreiben.",
-      skill7:"Sprachen: Englisch (fließend), Deutsch (B1+)",
+      about_p:"Elektroingenieur (M.Sc. in Automatisierung, Deutsch B1+) mit einem forschungsorientierten Ansatz für zuverlässige Softwarelösungen. Ich entwickle RESTful APIs, entwerfe Datenbankmodelle und liefere gut getestete Python/C++-Dienste. Zusätzlich arbeite ich in den Bereichen mobile Robotik und Automotive-Forschung & Entwicklung. Ich begeistere mich für autonome Softwaresysteme und freue mich darauf, Möglichkeiten in einem industriellen Umfeld zu erkunden.",
+      /* Headings newly localized */
+      career_h2:"Beruflicher Werdegang",
+      tech_h2:"Technologien & Werkzeuge",
+      /* Timeline role titles & subheads */
+      t_title_swdev:"Softwareentwickler",
+      t_title_intern:"Praktikant",
+      t_title_workstudent:"Werkstudent",
+      t_title_labo:"Laborassistent",
+      t_title_ra:"Wissenschaftlicher Mitarbeiter",
+      t_selected_projects:"Ausgewählte Projekte",
+
+      /* Hobbies */
       hobby_h2:"Hobbys",
       hobby_movies:"Filme & Serien",
       hobby_anime:"Anime",
-      hobby_gaming:"Online Spielen",
-      hobby_foodie: "Feinschmecker",
+      hobby_gaming:"Gaming",
+      hobby_foodie:"Feinschmecker",
+      /* Affiliations */
       aff_title: "Mitgliedschaften",
       aff1_role: "Mitglied",
       aff1_meta: "IEEE North South University Robotics & Automation Society Student Branch Chapter · 2020–2021",
@@ -492,6 +705,19 @@
   // Optional: if you dispatch a custom event elsewhere
   window.addEventListener('setlang', (e) => setResumeFor(e.detail));
 })();
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.see-more');
+    if (!btn) return;
+    const id = btn.dataset.target;
+    const list = document.getElementById(id);
+    if (!list) return;
+
+    const open = list.classList.toggle('is-open');
+    if (open) list.classList.remove('clamp'); else list.classList.add('clamp');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'See less' : 'See more';
+  });
 
 </script>
 

@@ -982,3 +982,210 @@ h1,h2{ margin:0 0 8px; font-weight:700; letter-spacing:.2px; }
 .icon-svg{ width:36px; height:36px; display:inline-block; }
 
 
+/* === Career Timeline === */
+.timeline{
+  position:relative;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:30%;
+  top:0; bottom:0;
+  width:2px;
+  background:var(--border);
+  transform:translateX(-1px);
+}
+
+/* 30% rail for logo/date | 70% for content */
+.t-item{
+  display:grid;
+  grid-template-columns:30% 1fr;
+  gap:24px;
+  padding-block:14px;
+}
+
+.t-left{
+  position:relative;
+  padding-right:16px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;   /* align to the rail */
+  gap:6px;
+  min-height:64px;
+}
+.t-left::after{
+  content:"";
+  position:absolute;
+  right:-7px;             /* sits over the rail */
+  top:28px;
+  width:12px; height:12px;
+  background:var(--accent);
+  border:2px solid var(--surface);
+  border-radius:50%;
+  box-shadow:var(--glow);
+}
+
+.t-logo{
+  margin:0;
+  width:64px; height:64px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  padding:6px;
+  overflow:hidden;
+}
+.t-logo img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  display:block;
+}
+.t-date{
+  color:var(--muted);
+  font-size:.9rem;
+  white-space:nowrap;
+}
+
+.t-right{ 
+  min-width:0; 
+}
+.t-company{ margin:0 0 6px; font-size:1.12rem; }
+
+.role-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  box-shadow:var(--shadow);
+}
+.t-meta{ color:var(--muted); font-size:.95rem; }
+.t-summary{ margin:6px 0 8px; color:var(--fg); }
+
+.t-bullets{ margin:6px 0 8px; padding-left:1.2rem; }
+.t-bullets li{ margin:4px 0; }
+
+/* Clamp bullets; your global JS toggles .is-open via data-target */
+.t-bullets.clamp{
+  position:relative;
+  max-height:6.8em;        /* ~4 lines */
+  overflow:hidden;
+}
+.t-bullets.clamp::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:0;
+  height:2rem;
+  background:linear-gradient(180deg, rgba(0,0,0,0), var(--surface));
+  pointer-events:none;
+}
+.t-bullets.is-open{ max-height:none; }
+.t-bullets.is-open::after{ display:none; }
+
+/* See more button (reuses your button visuals) */
+.role-card .see-more{
+  margin-top:4px;
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  border-radius:999px;
+  padding:6px 10px;
+  font-weight:600;
+  cursor:pointer;
+}
+.role-card .see-more:hover{ background:var(--accent); color:#061a17; }
+
+.role-card + .role-card{
+  margin-top: 18px;          /* tweak 16–24px to taste */
+  padding-top: 10px;         /* optional: creates a little buffer */
+  border-top: 1px dashed var(--border); /* optional: subtle divider */
+}
+
+/* Optional project pills inside a role */
+.t-subhead{ margin:10px 0 8px; font-size:.98rem; color:var(--muted); text-align: center; }
+
+.t-projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+  gap:10px;
+  
+}
+.t-proj{
+  display:block;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  color:var(--fg);
+  text-decoration:none;
+  transition:transform .12s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.t-proj:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--glow);
+  border-color:var(--accent);
+}
+.p-title{ margin:0 0 6px; font-size:1rem; }
+.p-list{ margin:0 0 8px; padding-left:1.1rem; }
+.p-list li{ margin:3px 0; }
+.p-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+.p-tags .tag{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:999px;
+  font-size:.8rem;
+  background:rgba(42,157,143,.18);
+  border:1px solid rgba(42,157,143,.35);
+  color:var(--accent);
+}
+
+/* Mobile */
+@media (max-width:720px){
+  .timeline::before{ display:none; }
+  .t-item{ grid-template-columns:1fr; gap:12px; }
+  .t-left{ align-items:flex-start; padding-right:0; }
+  .t-left::after{ display:none; }
+  .t-logo{ width:48px; height:48px; }
+  .t-date{ font-size:.85rem; }
+}
+
+/* Company heading link: looks like the heading, subtle hover */
+.t-company { margin: 0 0 4px; font-size: 1.15rem; }
+.t-company-link{
+  color: inherit;                  /* keep the same color as the heading */
+  text-decoration: none;           /* remove default underline */
+  border-bottom: 1px dashed transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.t-company-link:visited{ color: inherit; }  /* avoid purple visited state */
+.t-company-link:hover,
+.t-company-link:focus-visible{
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  outline: none;                   /* rely on the border as the focus cue */
+}
+
+/* Keep numbers off the rail list itself */
+ol.timeline { list-style: none; margin: 0; padding: 0; }
+
+/* Force filled bullets for all levels */
+.t-bullets,
+.t-bullets ul,
+.p-list,
+.p-list ul {
+  list-style-type: disc;      /* always solid bullets */
+}
+
+/* Ensure bullets render and align nicely */
+.t-bullets,
+.p-list {
+  padding-left: 1.2rem;
+  margin: 6px 0 8px;
+}
+
+.t-bullets li,
+.p-list li {
+  display: list-item;         /* in case a reset removed it */
+}
